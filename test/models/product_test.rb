@@ -1,6 +1,9 @@
    require 'test_helper'
 
 class ProductTest < ActiveSupport::TestCase
+   textures :products
+   # add test product
+end
    test "product attributes must not be empty" do
    product = Product.new
    test "product price must be positive" do
