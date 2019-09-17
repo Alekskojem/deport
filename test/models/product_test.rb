@@ -72,3 +72,4 @@ end
    			assert new_product(name).invalid?, "#{name} chould't be valid"
    										# dont be a valid 
    		end
+   
