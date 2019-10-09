@@ -18,5 +18,16 @@ class CombineItemsInCart < ActiveRecord::Migration[5.2]
   		end
   	end
   end
+  def down
+  	#drop writings quantity>1 on ather some writings
+  	LineItem.where("quantity>1").each do |line_item|
+  		#add invalid items
+  		line_item.quantity.times do
+  			LineItem.create cart_id: line_item.cart_id,
+  			product_id: line_item.product_id, quantity: 1
+  		end
+  		#delete first writen
+  		line_item.destroy
+  end
 end
 
